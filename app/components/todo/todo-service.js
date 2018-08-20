@@ -50,8 +50,11 @@ export default class TodoService {
 
 	removeTodo(todo, call) {
 		// Umm this one is on you to write.... The method is a DELETE
-		todoApi.delete(todo)
-		this.getTodos(call)
+		todoApi.delete(todo) {
+			.then(res => {
+				this.getTodos(call)
+			})
+		}
 	}
 }
 

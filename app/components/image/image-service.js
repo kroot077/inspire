@@ -10,12 +10,11 @@ const imgApi = axios.create({
 });
 
 export default class ImageService {
-	
-	newImage(call) {
-		imgApi.get()
+	getImage(callWhenDone) {
 		// ^^^^^^^ How do you call this function?
 		imgApi().then(res => {
-			res(call.apiUrl.data)
+			console.log('Image Data:', res.data)
+			callWhenDone(res.data)
 		})
 	}
 }

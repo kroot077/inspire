@@ -3,21 +3,23 @@ import ImageService from "./image-service.js"
 
 let ims = new ImageService
 
-function drawImage (singleImage) {
+function drawImage (singleImg) {
     document.body.style.backgroundImage = `
-    url('${singleImage.large_url}')
+    url('${singleImg.urls.full}')
     `
-    return drawImage;
 }
 
 export default class ImageController {
 
     constructor() {
-        ims.newImage()
+        ims.getImage()
     }
 
-    loadImage(id) {
-        ims.newImage(drawImage)
+    loadImage() {
+        ims.getImage(call => {
+            console.log('here')
+            drawImage(call)
+        })
     }
 
 }
