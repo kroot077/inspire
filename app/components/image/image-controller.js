@@ -5,21 +5,18 @@ let ims = new ImageService
 
 function drawImage (singleImg) {
     document.body.style.backgroundImage = `
-    url('${singleImg.urls.full}')
+    url('${singleImg.large_url}')
     `
 }
 
 export default class ImageController {
 
     constructor() {
-        ims.getImage()
+        ims.getImage(drawImage)
     }
 
     loadImage() {
-        ims.getImage(call => {
-            console.log('here')
-            drawImage(call)
-        })
+        ims.getImage(drawImage)
     }
 
 }
