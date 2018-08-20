@@ -4,7 +4,7 @@ import ImageService from "./image-service.js"
 let ims = new ImageService
 
 function drawImage (singleImage) {
-    document.body.style.backgroundImage += `
+    document.body.style.backgroundImage = `
     url('${singleImage.large_url}')
     `
     return drawImage;
@@ -13,7 +13,7 @@ function drawImage (singleImage) {
 export default class ImageController {
 
     constructor() {
-        ims.newImage
+        ims.newImage()
     }
 
     loadImage(id) {

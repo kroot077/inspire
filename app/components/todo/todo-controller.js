@@ -19,9 +19,8 @@ function draw(todos) {
 		let todo = todos[i];
 		template += `
 		<div>
-			<p>to do</p>
-			<p><p>
-			<p onclick="">New Todo</p>
+			<p>To do:</p>
+			<p onclick="${todos.addTodo}">New Todo</p>
 		</div>
 		`
 	}
@@ -46,6 +45,7 @@ export default class TodoController {
 		var form = e.target
 		var todo = {
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			description: form.todo.value
 		}
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
