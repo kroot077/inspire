@@ -3,12 +3,9 @@ import ImageService from "./image-service"
 
 let ims = new ImageService
 
-function drawImage (singleImg) {
+function drawImage (singleImage) {
     document.body.style.backgroundImage += `
-    background-image: ${singleImg.data.main.url};
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
+    url('${singleImage.large_url}')
     `
     return drawImage;
 }
