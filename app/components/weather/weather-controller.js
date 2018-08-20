@@ -9,9 +9,10 @@ export default class WeatherController {
 		//this will fire off get weather right away
 		this.getWeather()
 	}
-	getWeather() {
+	getWeather(weath) {
 		weatherService.getWeather(weather => {
 			console.log(weather);
+			weatherService.getWeather(weath)
 			//What can you do with this weather object?
 		})
 	}

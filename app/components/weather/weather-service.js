@@ -20,4 +20,15 @@ export default class WeatherService {
 			callWhenDone(res.data);
 		})
 	}
+
+	setToF(f) {
+		let toF = (this.getWeather.weatherApi.res.data * 1.8) - 459.67
+		localStorage.setItem('weather', JSON.stringify(toF))
+	}
+
+	setToC(c) {
+		let toC = (this.getWeather.weatherApi.res.data * 1.8) - 459.67
+		localStorage.setItem('weather', JSON.stringify(toC))
+	}
+
 }

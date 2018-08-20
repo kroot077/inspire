@@ -4,23 +4,23 @@ import ImageService from "./image-service"
 let ims = new ImageService
 
 function drawImage (singleImg) {
-    let csTemplate = ''
-    const img = singleImg[i];
-    csTemplate += `
+    document.body.style.backgroundImage += `
     background-image: ${img.data};
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
     `
-    document.getElementsByName("body").style = csTemplate
     return drawImage;
 }
 
 export default class ImageController {
 
     constructor() {
-        ims.init()
+        
     }
 
-    loadImage() {
-
+    loadImage(id) {
+        ims.newImage(drawImage)
     }
 
 }

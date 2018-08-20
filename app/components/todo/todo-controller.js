@@ -15,12 +15,22 @@ function draw(todos) {
 	//BUILD YOUR TODO TEMPLATE HERE
 	var template = ''
 	//DONT FORGET TO LOOP
+	for (let i = 0 ; i < todos.length ; i++) {
+		let todo = todos[i];
+		template += `
+		<div>
+			<p>to do</p>
+			<p><p>
+			<p onclick="">New Todo</p>
+		</div>
+		`
+	}
 }
 
 
 export default class TodoController {
 	constructor() {
-		// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
+		todoService.getTodos(draw)// IF YOU WANT YOUR TODO LIST TO DRAW WHEN THE PAGE FIRST LOADS WHAT SHOULD YOU CALL HERE???
 	}
 	// You will need four methods
 	// getTodos should request your api/todos and give an array of todos to your callback fn
@@ -53,7 +63,7 @@ export default class TodoController {
 
 	removeTodo(todoId) {
 		// ask the service to run the remove todo with this id
-
+		todoService.removeTodo(todoId, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 

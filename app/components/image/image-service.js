@@ -13,8 +13,7 @@ export default class ImageService {
 	newImage(call) {
 		imgApi.get()
 		// ^^^^^^^ How do you call this function?
-		.then(res => {
-			console.log('Image Data:', res.data)
+		imgApi().then(res => {
 			call(res.data)
 		})
 	}
