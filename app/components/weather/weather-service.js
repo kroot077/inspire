@@ -2,6 +2,7 @@ const url = '//bcw-getter.herokuapp.com/?url=';
 const url2 = 'http://api.openweathermap.org/data/2.5/weather?q=boise&&APPID=bd82255fd0a21fa1238699b9eda2ee35'
 const apiUrl = url + encodeURIComponent(url2);
 
+// @ts-ignore
 const weatherApi = axios.create({
 	baseURL: apiUrl,
 	timeout: 3000
@@ -9,25 +10,15 @@ const weatherApi = axios.create({
 
 export default class WeatherService {
 
-	getWeather(callWhenDone) {
+	getWeather(call) {
 		weatherApi().then(function (res) {
 			localStorage.setItem('weather', JSON.stringify(res.data))
 			// HEY FUN FACT 
 			// Have you ever wanted to know the temperature measured in kelvin? That is what this data returns!
 			// res.data.temp is the temperature in Kelvin
 			// You should probably convert the temperature data to either F or C
-			callWhenDone(res.data);
+			call(res.data);
 		})
-	}
-
-	setToF(f) {
-		let toF = Math.floor(this.getWeather.weatherApi.res.data * 1.8) - 459.67
-		localStorage.setItem('weather', JSON.stringify(toF))
-	}
-
-	setToC(c) {
-		let toC = Math.floor(this.getWeather.weatherApi.res.data * 1.8) - 459.67
-		localStorage.setItem('weather', JSON.stringify(toC))
 	}
 
 }

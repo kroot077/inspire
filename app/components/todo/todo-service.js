@@ -1,5 +1,3 @@
-
-
 // @ts-ignore
 const todoApi = axios.create({
 	baseURL: 'https://bcw-sandbox.herokuapp.com/api/YOURNAME/todos/',
@@ -10,8 +8,7 @@ function logError(e) {
 	console.log(e)
 }
 
-
-let todoList = []
+let todoList = ""
 
 export default class TodoService {
 
@@ -19,8 +16,9 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get('')
 			.then((res) => { // <-- WHY IS THIS IMPORTANT????
-				
+				todoList = (res.data.data)
 			})
+			draw(todoList)
 			.catch(logError)
 	}
 
@@ -28,7 +26,8 @@ export default class TodoService {
 		// WHAT IS THIS FOR???
 		todoApi.post('', todo)
 			.then(function (res) { // <-- WHAT DO YOU DO AFTER CREATING A NEW TODO?
-				this.getTodos(todo)
+				todoList.push(res)
+				getTodos()
 			})
 			.catch(logError)
 	}
@@ -49,7 +48,7 @@ export default class TodoService {
 
 	removeTodo() {
 		// Umm this one is on you to write.... The method is a DELETE
-		
+		todoList.delete
 	}
 
 }

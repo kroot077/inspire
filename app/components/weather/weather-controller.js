@@ -4,17 +4,11 @@ var ws = new WeatherService()
 
 function drawWeather(curWeather) {
 
-	class setToC {
-		let toC = Math.floor(this.getWeather.weatherApi.res.data * 1.8) - 459.67
-		localStorage.setItem('weather', JSON.stringify(toC))
-	}
-
-	class setToF {
-		let toF = Math.floor(this.getWeather.weatherApi.res.data * 1.8) - 459.67
-		localStorage.setItem('weather', JSON.stringify(toF))
-	}
-
-	let weatherK = 
+	document.getElementById("weather").innerHTML = `
+	<div>
+		<h3>${curWeather.data.main.temp}</h3>
+	</div>
+	`
 }
 
 export default class WeatherController {
@@ -23,10 +17,10 @@ export default class WeatherController {
 		//this will fire off get weather right away
 		this.getWeather()
 	}
-	getWeather(weath) {
-		ws.getWeather(weather => {
-			console.log(weather);
-			ws.getWeather(weath)
+
+	getWeather() {
+		ws.getWeather(weath => {
+			drawWeather(weath)
 			//What can you do with this weather object?
 		})
 	}
