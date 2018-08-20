@@ -16,5 +16,6 @@ export default class QuoteService {
 		quoteApi().then(res => {
 			call(res.data);
 		})
-	};
+		.catch(err => console.log(err)) 
+	}
 }

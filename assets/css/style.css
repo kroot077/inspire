@@ -4,10 +4,19 @@ body {
     background-repeat: no-repeat;
 }
 
-.quote {
+#weather {
+    background-color: black;
+    color: white;
+}
 
+.theQuote {
+    font-size: 18px;
+    color: white;
+    text-shadow: 0px 2px 5px black;
 }
 
 .author {
-
+    font-size: 16px;
+    color: white;
+    text-shadow: 2px 2px 5px black;
 }
