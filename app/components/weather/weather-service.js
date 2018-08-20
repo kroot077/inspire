@@ -10,7 +10,6 @@ const weatherApi = axios.create({
 export default class WeatherService {
 
 	getWeather(callWhenDone) {
-		console.log('Calling the Weatherman')
 		weatherApi().then(function (res) {
 			localStorage.setItem('weather', JSON.stringify(res.data))
 			// HEY FUN FACT 
@@ -22,12 +21,12 @@ export default class WeatherService {
 	}
 
 	setToF(f) {
-		let toF = (this.getWeather.weatherApi.res.data * 1.8) - 459.67
+		let toF = Math.floor(this.getWeather.weatherApi.res.data * 1.8) - 459.67
 		localStorage.setItem('weather', JSON.stringify(toF))
 	}
 
 	setToC(c) {
-		let toC = (this.getWeather.weatherApi.res.data * 1.8) - 459.67
+		let toC = Math.floor(this.getWeather.weatherApi.res.data * 1.8) - 459.67
 		localStorage.setItem('weather', JSON.stringify(toC))
 	}
 
